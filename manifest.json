@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Workflowy Calendar",
+  "version": "1.0",
+  "description": "Display Workflowy items in a calendar view",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon.png",
+    "48": "images/icon.png",
+    "128": "images/icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://workflowy.com/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "popup.html",
+    "openPanelOnActionClick": true
+},
+  "web_accessible_resources": [{
+    "resources": ["inject.js"],
+    "matches": ["https://workflowy.com/*"]
+  }]
+}

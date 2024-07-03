@@ -1,0 +1,27 @@
+.calendar {
+    width: 800px;
+    text-align: center;
+  }
+  .calendar table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .calendar th, .calendar td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    position: relative;
+  }
+  .calendar th {
+    background-color: #f0f0f0;
+  }
+  .calendar td.today {
+    background-color: #ffff99;
+  }
+  .calendar .events {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 200px; /* 设置日历项的高度，足以显示5个项目 */
+    overflow: auto; /* 如果项目超出高度，则显示滚动条 */
+  }
+  
