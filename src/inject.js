@@ -56,13 +56,9 @@
         const dates = dateExtractorEnhanced();
         // Listen for messages from content.js
         window.addEventListener('message', function (event) {
-          console.log("inject2")
           if (event.source !== window || !event.data.type || event.data.type !== 'GET_WORKFLOWY_DATA') {
             return;
           }
-          console.log("inject")
-          console.log(dates)
-
           // Send data back to content.js
           window.postMessage({ type: 'WORKFLOWY_DATA', data: dates }, '*');
         });
@@ -72,8 +68,18 @@
     if (document.readyState === 'complete') {
       init();
     } else {
-      // TODO 判断是否加载了 WF.currentItem();
-      setTimeout(init, 3000);
+      // TODO 判断是否加载了 WF.currentItem()不能为空，retry 10次，每次等待 1 秒;
+      let retry = 0;
+      const timer = setInterval(() => {
+        if (retry >= 10) {
+          clearInterval(timer);
+        }
+        if (typeof WF !== 'undefined' && WF.currentItem() !== null) {
+          clearInterval(timer);
+          init();
+        }
+        retry++;
+      }, 1000);
       // document.addEventListener('DOMContentLoaded', init);
     }
   })();

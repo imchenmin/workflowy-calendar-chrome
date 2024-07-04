@@ -8,10 +8,10 @@
     "scripting"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "src/background.js"
   },
   "action": {
-    "default_popup": "popup.html",
+    "default_popup": "src/popup.html",
     "default_icon": {
       "16": "images/icon.png",
       "48": "images/icon.png",
@@ -26,15 +26,15 @@
   "content_scripts": [
     {
       "matches": ["https://workflowy.com/*"],
-      "js": ["content.js"]
+      "js": ["src/content.js"]
     }
   ],
   "side_panel": {
-    "default_path": "popup.html",
+    "default_path": "src/popup.html",
     "openPanelOnActionClick": true
 },
   "web_accessible_resources": [{
-    "resources": ["inject.js"],
+    "resources": ["src/inject.js"],
     "matches": ["https://workflowy.com/*"]
   }]
 }

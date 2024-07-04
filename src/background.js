@@ -25,3 +25,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true; // Keep the message channel open for sendResponse
   }
 });
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  if (changeInfo.status === 'complete') {
+    chrome.runtime.sendMessage({ action: 'refreshPopup' });
+  }
+});
+

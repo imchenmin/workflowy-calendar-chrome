@@ -5,7 +5,7 @@ function injectScript(filePath, tag) {
   document.getElementsByTagName(tag)[0].appendChild(script);
 }
 
-injectScript(chrome.runtime.getURL('inject.js'), 'body');
+injectScript(chrome.runtime.getURL('src/inject.js'), 'body');
 
 function requestWorkflowyData() {
   window.postMessage({ type: 'GET_WORKFLOWY_DATA' }, '*');
