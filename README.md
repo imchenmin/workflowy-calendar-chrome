@@ -3,6 +3,9 @@
 
 This Chrome extension integrates with Workflowy to display your tasks and events in a calendar format. The extension fetches data from Workflowy and presents it in an easy-to-use calendar view within the popup.
 
+https://github.com/imchenmin/workflowy-calendar-chrome/assets/20356658/c6533d95-dcba-4cec-8ccb-40d83aab9b94
+
+
 ![截屏2024-07-04 00 51 12](https://github.com/imchenmin/workflowy-calendar-chrome/assets/20356658/59d4761c-4c11-47b2-8feb-f5c3c700aff5)
 ## Features
 
